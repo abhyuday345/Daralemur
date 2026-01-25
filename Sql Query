@@ -4,3 +4,12 @@ SELECT candidate_id FROM candidates
 WHERE SKILL IN ('Python','Tableau','PostgreSQL')
 group by candidate_id
 having count(*)=3;
+
+2) Write a query to return the IDs of the Facebook pages that have zero likes. The output should be sorted in ascending order based on the page IDs.
+
+SELECT p.page_id FROM pages p 
+left join page_likes pl 
+on p.page_id = pl.page_id
+where user_id is null
+order by p.page_id
+;
