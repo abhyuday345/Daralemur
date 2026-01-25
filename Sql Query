@@ -1,0 +1,6 @@
+1) Write a query to list the candidates who possess all of the required skills for the job. Sort the output by candidate ID in ascending order.
+
+SELECT candidate_id FROM candidates
+WHERE SKILL IN ('Python','Tableau','PostgreSQL')
+group by candidate_id
+having count(*)=3;
