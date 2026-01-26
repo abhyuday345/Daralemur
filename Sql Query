@@ -13,3 +13,8 @@ on p.page_id = pl.page_id
 where user_id is null
 order by p.page_id
 ;
+
+3) Write a query to determine which parts have begun the assembly process but are not yet finished.
+
+select part,assembly_step FROM parts_assembly
+where finish_date is null;
