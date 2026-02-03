@@ -19,7 +19,17 @@ order by p.page_id
 select part,assembly_step FROM parts_assembly
 where finish_date is null;
 
-4) Write a query to retrieve the top three cities that have the highest number of completed trade orders listed in descending order. Output the city name and the corresponding number of completed trade orders.
+4)Write a query that calculates the total viewership for laptops and mobile devices where mobile is defined as the sum of tablet and 
+phone viewership. Output the total viewership for laptops as laptop_reviews and the total viewership for mobile devices as mobile_views.
+
+SELECT
+SUM(CASE WHEN device_type = 'laptop' THEN 1 ELSE 0 END) AS laptop_views,
+    SUM(CASE WHEN device_type IN ('phone','tablet') THEN 1 ELSE 0 END) AS mobile_views
+    FROM viewership;
+
+
+
+5) Write a query to retrieve the top three cities that have the highest number of completed trade orders listed in descending order. Output the city name and the corresponding number of completed trade orders.
 
 SELECT city, COUNT(*) as total_count
 FROM trades t
