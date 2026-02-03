@@ -18,3 +18,14 @@ order by p.page_id
 
 select part,assembly_step FROM parts_assembly
 where finish_date is null;
+
+4) Write a query to retrieve the top three cities that have the highest number of completed trade orders listed in descending order. Output the city name and the corresponding number of completed trade orders.
+
+SELECT city, COUNT(*) as total_count
+FROM trades t
+JOIN users u
+  ON t.user_id = u.user_id
+WHERE status = 'Completed'
+GROUP BY city
+order by total_count  desc
+limit 3;
